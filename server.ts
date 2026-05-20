@@ -19,11 +19,11 @@ dotenv.config();
 const app = express();
 const PORT = 3000;
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
+let supabaseUrl = (process.env.NEXT_PUBLIC_SUPABASE_URL || "").replace(/['"]/g, "").trim();
+let supabaseKey = (process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "").replace(/['"]/g, "").trim();
 
 if (!supabaseUrl || !supabaseKey) {
-  console.error("CRITICAL ERROR: Supabase environment variables NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY are not defined in .env!");
+  console.error("CRITICAL ERROR: Supabase environment variables NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY are not defined!");
 }
 
 // Global anonymous client

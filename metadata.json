@@ -1,0 +1,6 @@
+{
+  "name": "LostLink",
+  "description": "A modern full-stack Lost & Found Web Application designed for communities and campuses to safely recover valuables, match similar items, and contact finders securely.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

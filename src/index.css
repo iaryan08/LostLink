@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;450;550;600;750&family=JetBrains+Mono:wght@300;500;750&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+/* Smooth thematic transitions across all components */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base body dark definitions */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body,
+.dark #applet-core-shell,
+.dark #entry-wall-main {
+  background-color: #0b0f19 !important; /* Deep Slate Blue Black */
+  color: #f1f5f9 !important;
+}
+
+/* Primary surface/card backgrounds */
+.dark .bg-white,
+.dark .navbar-container,
+.dark .modal-content-wrapper,
+.dark #admin-workspace-card,
+.dark #filters-workspace,
+.dark #items-feed-grid > div {
+  background-color: #141b2d !important; /* Dark Slate Blue cards */
+}
+
+/* Secondary surface backgrounds */
+.dark .bg-slate-50,
+.dark .bg-slate-50\/50,
+.dark .bg-slate-50\/80 {
+  background-color: #0d1322 !important; /* Deeper background cavity */
+}
+
+.dark .bg-slate-100 {
+  background-color: #1a233a !important; /* Medium slate highlight */
+}
+
+/* Transparent overlays */
+.dark .bg-black\/50,
+.dark .bg-slate-900\/50 {
+  background-color: rgba(3, 7, 18, 0.75) !important;
+}
+
+/* Borders mapping to keep layout crispy */
+.dark .border-slate-50,
+.dark .border-slate-100,
+.dark .border-slate-200,
+.dark .border-slate-250,
+.dark .border-slate-300 {
+  border-color: #1e293b !important; /* Subtle slate border */
+}
+
+/* Main typography mappings for high contrast */
+.dark .text-slate-950,
+.dark .text-slate-900,
+.dark .text-slate-800,
+.dark .text-slate-750,
+.dark .font-bold.text-slate-900 {
+  color: #f8fafc !important; /* Near white */
+}
+
+.dark .text-slate-700,
+.dark .text-slate-600 {
+  color: #cbd5e1 !important; /* Mid gray text */
+}
+
+.dark .text-slate-500,
+.dark .text-slate-400 {
+  color: #94a3b8 !important; /* Subtitle dim gray text */
+}
+
+.dark .text-indigo-600 {
+  color: #818cf8 !important; /* Bright Indigo Accent in dark mode */
+}
+
+.dark .text-indigo-750 {
+  color: #a5b4fc !important;
+}
+
+/* Form inputs, dropdown menus & selections */
+.dark input,
+.dark select,
+.dark textarea {
+  background-color: #0d1322 !important;
+  border-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #64748b !important;
+}
+
+.dark input:focus,
+.dark select:focus,
+.dark textarea:focus {
+  border-color: #6366f1 !important;
+}
+
+/* Button & interactive states */
+.dark button.bg-slate-50,
+.dark button.bg-slate-100 {
+  background-color: #1a233a !important;
+  color: #cbd5e1 !important;
+  border-color: #1e293b !important;
+}
+
+.dark button.bg-slate-50:hover,
+.dark button.bg-slate-100:hover {
+  background-color: #243052 !important;
+  color: #f8fafc !important;
+}
+
+/* Special category badge adjustments in dark mode */
+.dark .bg-sky-50 {
+  background-color: rgba(56, 189, 248, 0.15) !important;
+  color: #38bdf8 !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+}
+.dark .bg-amber-50 {
+  background-color: rgba(251, 191, 36, 0.15) !important;
+  color: #fbbf24 !important;
+  border-color: rgba(251, 191, 36, 0.3) !important;
+}
+.dark .bg-purple-50 {
+  background-color: rgba(192, 132, 252, 0.15) !important;
+  color: #c084fc !important;
+  border-color: rgba(192, 132, 252, 0.3) !important;
+}
+.dark .bg-teal-50 {
+  background-color: rgba(45, 212, 191, 0.15) !important;
+  color: #2dd4bf !important;
+  border-color: rgba(45, 212, 191, 0.3) !important;
+}
+.dark .bg-indigo-50 {
+  background-color: rgba(129, 140, 248, 0.15) !important;
+  color: #818cf8 !important;
+  border-color: rgba(129, 140, 248, 0.3) !important;
+}
+.dark .bg-emerald-50 {
+  background-color: rgba(52, 211, 153, 0.15) !important;
+  color: #34d399 !important;
+  border-color: rgba(52, 211, 153, 0.3) !important;
+}
+.dark .bg-rose-50 {
+  background-color: rgba(251, 113, 133, 0.15) !important;
+  color: #fb7185 !important;
+  border-color: rgba(251, 113, 133, 0.3) !important;
+}
+.dark .bg-red-50 {
+  background-color: rgba(248, 113, 113, 0.15) !important;
+  color: #f87171 !important;
+  border-color: rgba(248, 113, 113, 0.3) !important;
+}
+
+/* Admin Center components panel adjustments */
+.dark #admin-workspace-card table th {
+  background-color: #1a233a !important;
+  color: #94a3b8 !important;
+  border-color: #1e293b !important;
+}
+
+.dark #admin-workspace-card table td {
+  border-color: #1e293b !important;
+}
+
+/* Banner details customization */
+.dark .bg-indigo-950 {
+  background-color: #0d1322 !important;
+  border-color: #1e293b !important;
+}
+
+/* Footer credits styling */
+.dark footer {
+  background-color: #0b0f19 !important;
+  border-color: #1e293b !important;
+  color: #475569 !important;
+}

@@ -65,8 +65,7 @@ This workspace is designed to work fully in-memory and persist into `db.json` in
 
 ---
 
-## 🛡️ Presentation Tips for Your Final Practical/Viva
-
+## 🛡️Tips 
 When presenting this project to external examiners, prepare to answer these core questions:
 
 1. **How is user data protected?**

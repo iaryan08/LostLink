@@ -242,6 +242,7 @@ export function AppContextProvider({ children }: { children: ReactNode }) {
 
   // Auth bootstrap
   const fetchMe = async (token: string) => {
+    setLoading(true);
     try {
       const res = await fetch('/api/auth/me', {
         headers: { 'Authorization': `Bearer ${token}` }
@@ -305,12 +306,13 @@ export function AppContextProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
+    if (!authInitialized) return;
     if (authToken) {
       fetchMe(authToken);
     } else {
       setLoading(false);
     }
-  }, [authToken]);
+  }, [authToken, authInitialized]);
 
   useEffect(() => {
     if (currentUser) {

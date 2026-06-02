@@ -14,6 +14,8 @@ interface ClientLayoutProps {
   children: ReactNode;
 }
 
+const SESSION_LOADING_TEXT = "Establishing session...";
+
 export default function ClientLayout({ children }: ClientLayoutProps) {
   const {
     authToken,
@@ -67,7 +69,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
     return (
       <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col items-center justify-center">
         <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
-        <span className="text-xs font-mono text-slate-400 mt-3">Re-establishing secure session...</span>
+        <span className="text-xs font-mono text-slate-400 mt-3">{SESSION_LOADING_TEXT}</span>
       </div>
     );
   }
@@ -77,7 +79,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
     return (
       <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col items-center justify-center">
         <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
-        <span className="text-xs font-mono text-slate-400 mt-3">Re-establishing secure session...</span>
+        <span className="text-xs font-mono text-slate-400 mt-3">{SESSION_LOADING_TEXT}</span>
       </div>
     );
   }

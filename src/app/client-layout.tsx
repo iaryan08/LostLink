@@ -19,6 +19,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
     authToken,
     currentUser,
     loading,
+    authInitialized,
     notifications,
     handleLogout,
     activeTab,
@@ -60,6 +61,16 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
     handleClaimSubmit,
     handleReportClaimSubmit,
   } = useAppContext();
+
+  // Show full loading spinner until token has been read from localStorage
+  if (!authInitialized) {
+    return (
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col items-center justify-center">
+        <div className="w-8 h-8 border-4 border-indigo-200 border-t-indigo-600 rounded-full animate-spin"></div>
+        <span className="text-xs font-mono text-slate-400 mt-3">Re-establishing secure session...</span>
+      </div>
+    );
+  }
 
   // Render loading state while recovering user session
   if (loading && authToken && !currentUser) {

@@ -9,6 +9,7 @@ interface AppContextType {
   authToken: string | null;
   currentUser: Profile | null;
   loading: boolean;
+  authInitialized: boolean;
   activeTab: string;
   setActiveTab: (tab: string) => void;
   darkMode: boolean;
@@ -173,6 +174,7 @@ export function AppContextProvider({ children }: { children: ReactNode }) {
   };
 
   const [loading, setLoading] = useState<boolean>(true);
+  const [authInitialized, setAuthInitialized] = useState<boolean>(false);
   const [darkMode, setDarkMode] = useState<boolean>(true);
   
   // Authentication Forms State
@@ -225,6 +227,7 @@ export function AppContextProvider({ children }: { children: ReactNode }) {
     if (themeSaved) {
       setDarkMode(themeSaved === 'true');
     }
+    setAuthInitialized(true);
   }, []);
 
   // Base HTTP Request header generators
@@ -735,6 +738,7 @@ export function AppContextProvider({ children }: { children: ReactNode }) {
       authToken,
       currentUser,
       loading,
+      authInitialized,
       activeTab,
       setActiveTab,
       darkMode,
